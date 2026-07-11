@@ -17,7 +17,7 @@
   <transform>
     <type>CSVInput</type>
     <name>CSV file input</name>
-    <filename>/home/ivanilton/Downloads/CSVS/com-csv-componentes-curriculares-da-ufs.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/CSVS/com-csv-componentes-curriculares-da-ufs.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -35,7 +35,7 @@
       <field>
         <name>id_componente</name>
         <length>15</length>
-        <type>Integer</type>
+        <type>String</type>
         <format>#</format>
         <trim_type>none</trim_type>
         <precision>0</precision>
@@ -344,8 +344,209 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>144</yloc>
+      <xloc>96</xloc>
+      <yloc>128</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>SortRows</type>
+    <name>Sort rows</name>
+    <fields>
+      <field>
+        <name>codigo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>nome</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>departamento</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cr_total</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <directory>${java.io.tmpdir}</directory>
+    <sort_prefix>out</sort_prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <unique_rows>N</unique_rows>
+    <compress>N</compress>
+    <compress_variables/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>112</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>Unique</type>
+    <name>Unique rows</name>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <fields>
+      <field>
+        <name>codigo</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>nome</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>departamento</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>cr_total</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>112</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>TableInput</type>
+    <name>Table input</name>
+    <sql>SELECT cod_disc, nome, 
+depto_responsavel, creditos
+FROM universidade.disciplina;</sql>
+    <limit>0</limit>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <connection>univeridade</connection>
+    <lookup/>
+    <sql_from_file/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>240</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>SelectValues</type>
+    <name>Select values</name>
+    <fields>
+      <field>
+        <name>cod_disc</name>
+        <rename>codigo</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>nome</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>depto_responsavel</name>
+        <rename>departamento</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>creditos</name>
+        <rename>cr_total</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>240</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>SelectValues</type>
+    <name>Select values 2</name>
+    <fields>
+      <field>
+        <name>codigo</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>nome</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>departamento</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>cr_total</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>128</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -381,27 +582,27 @@
     <change_column_types>N</change_column_types>
     <fields>
       <field>
-        <stream_name>nome</stream_name>
-        <column_name>nome</column_name>
-      </field>
-      <field>
         <stream_name>codigo</stream_name>
         <column_name>codigo</column_name>
       </field>
       <field>
-        <stream_name>departamento</stream_name>
-        <column_name>departamento_responsavel</column_name>
+        <stream_name>nome</stream_name>
+        <column_name>nome</column_name>
       </field>
       <field>
         <stream_name>cr_total</stream_name>
         <column_name>cr_total</column_name>
       </field>
+      <field>
+        <stream_name>departamento</stream_name>
+        <column_name>departamento_responsavel</column_name>
+      </field>
     </fields>
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>80</yloc>
+      <xloc>464</xloc>
+      <yloc>112</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -411,7 +612,32 @@
   </transform>
   <order>
     <hop>
+      <from>Sort rows</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>CSV file input</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>

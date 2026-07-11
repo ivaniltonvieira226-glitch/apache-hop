@@ -17,7 +17,7 @@
   <transform>
     <type>CSVInput</type>
     <name>CSV file input</name>
-    <filename>/home/ivanilton/Downloads/CSVS/uni-csv-unidades-academicas-da-ufs.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/CSVS/uni-csv-unidades-academicas-da-ufs.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -65,111 +65,12 @@
         <decimal>.</decimal>
         <group>,</group>
       </field>
-      <field>
-        <name>sigla_academica</name>
-        <length>10</length>
-        <type>String</type>
-        <format/>
-        <trim_type>none</trim_type>
-        <precision>-1</precision>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-      </field>
-      <field>
-        <name>id_unidade_responsavel</name>
-        <length>15</length>
-        <type>Integer</type>
-        <format>#</format>
-        <trim_type>none</trim_type>
-        <precision>0</precision>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-      </field>
-      <field>
-        <name>unidade_responsavel</name>
-        <length>40</length>
-        <type>String</type>
-        <format/>
-        <trim_type>none</trim_type>
-        <precision>-1</precision>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-      </field>
-      <field>
-        <name>id_unidade_gestora</name>
-        <length>15</length>
-        <type>Integer</type>
-        <format>#</format>
-        <trim_type>none</trim_type>
-        <precision>0</precision>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-      </field>
-      <field>
-        <name>unidade_gestora</name>
-        <length>40</length>
-        <type>String</type>
-        <format/>
-        <trim_type>none</trim_type>
-        <precision>-1</precision>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-      </field>
-      <field>
-        <name>id_gestora_academica</name>
-        <length>15</length>
-        <type>Integer</type>
-        <format>#</format>
-        <trim_type>none</trim_type>
-        <precision>0</precision>
-        <currency>$</currency>
-        <decimal>,</decimal>
-        <group>.</group>
-      </field>
-      <field>
-        <name>unidade_gestora_academica</name>
-        <length>40</length>
-        <type>String</type>
-        <format/>
-        <trim_type>none</trim_type>
-        <precision>-1</precision>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-      </field>
-      <field>
-        <name>tipo_organizacional</name>
-        <length>50</length>
-        <type>String</type>
-        <format/>
-        <trim_type>none</trim_type>
-        <precision>-1</precision>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-      </field>
-      <field>
-        <name>tipo_academica</name>
-        <length>12</length>
-        <type>String</type>
-        <format/>
-        <trim_type>none</trim_type>
-        <precision>-1</precision>
-        <currency>$</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-      </field>
     </fields>
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>128</yloc>
+      <xloc>80</xloc>
+      <yloc>192</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -205,7 +106,7 @@
     <change_column_types>N</change_column_types>
     <fields>
       <field>
-        <stream_name>sigla</stream_name>
+        <stream_name>codigo</stream_name>
         <column_name>codigo</column_name>
       </field>
       <field>
@@ -216,8 +117,160 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>176</yloc>
+      <xloc>560</xloc>
+      <yloc>192</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>SortRows</type>
+    <name>Sort rows</name>
+    <fields>
+      <field>
+        <name>nome</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>codigo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <directory>${java.io.tmpdir}</directory>
+    <sort_prefix>out</sort_prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <unique_rows>N</unique_rows>
+    <compress>N</compress>
+    <compress_variables/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>272</xloc>
+      <yloc>192</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>Unique</type>
+    <name>Unique rows</name>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <fields>
+      <field>
+        <name>nome</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>codigo</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>352</xloc>
+      <yloc>192</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>TableInput</type>
+    <name>Table input</name>
+    <sql>SELECT nome, cod_depto FROM universidade.departamento;
+</sql>
+    <limit>0</limit>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <connection>univeridade</connection>
+    <lookup/>
+    <sql_from_file/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>80</xloc>
+      <yloc>352</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>SelectValues</type>
+    <name>Select values</name>
+    <fields>
+      <field>
+        <name>nome</name>
+        <rename>nome</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>cod_depto</name>
+        <rename>codigo</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>368</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>SelectValues</type>
+    <name>Select values 2</name>
+    <fields>
+      <field>
+        <name>nome</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <field>
+        <name>sigla</name>
+        <rename>codigo</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>176</xloc>
+      <yloc>192</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -227,7 +280,32 @@
   </transform>
   <order>
     <hop>
+      <from>Sort rows</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>CSV file input</from>
+      <to>Select values 2</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values 2</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
       <to>Table output</to>
       <enabled>Y</enabled>
     </hop>

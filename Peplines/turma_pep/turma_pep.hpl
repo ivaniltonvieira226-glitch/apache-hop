@@ -54,7 +54,7 @@
         <column_name>reprovados</column_name>
       </field>
       <field>
-        <stream_name>total_alunos</stream_name>
+        <stream_name>matriculados</stream_name>
         <column_name>discentes_matrc</column_name>
       </field>
       <field>
@@ -77,8 +77,8 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>96</yloc>
+      <xloc>816</xloc>
+      <yloc>384</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -123,8 +123,8 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>512</yloc>
+      <xloc>304</xloc>
+      <yloc>336</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -182,8 +182,8 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>512</yloc>
+      <xloc>432</xloc>
+      <yloc>480</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -236,7 +236,7 @@
     <copies>1</copies>
     <GUI>
       <xloc>336</xloc>
-      <yloc>528</yloc>
+      <yloc>400</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -274,8 +274,8 @@
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>432</xloc>
-      <yloc>528</yloc>
+      <xloc>368</xloc>
+      <yloc>464</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -301,7 +301,7 @@
   <transform>
     <type>CSVInput</type>
     <name>2019</name>
-    <filename>/home/ivanilton/Downloads/Turmas_csv/tur-csv-turmas-de-2019.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/Turmas_csv/tur-csv-turmas-de-2019.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -530,7 +530,7 @@
   <transform>
     <type>CSVInput</type>
     <name>2020</name>
-    <filename>/home/ivanilton/Downloads/Turmas_csv/tur-csv-turmas-de-2020.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/Turmas_csv/tur-csv-turmas-de-2020.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -759,7 +759,7 @@
   <transform>
     <type>CSVInput</type>
     <name>2021</name>
-    <filename>/home/ivanilton/Downloads/Turmas_csv/tur-csv-turmas-de-2021.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/Turmas_csv/tur-csv-turmas-de-2021.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -988,7 +988,7 @@
   <transform>
     <type>CSVInput</type>
     <name>2022</name>
-    <filename>/home/ivanilton/Downloads/Turmas_csv/tur-csv-turmas-de-2022.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/Turmas_csv/tur-csv-turmas-de-2022.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -1217,7 +1217,7 @@
   <transform>
     <type>CSVInput</type>
     <name>2023</name>
-    <filename>/home/ivanilton/Downloads/Turmas_csv/tur-csv-turmas-de-2023.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/Turmas_csv/tur-csv-turmas-de-2023.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -1446,7 +1446,7 @@
   <transform>
     <type>CSVInput</type>
     <name>2024</name>
-    <filename>/home/ivanilton/Downloads/Turmas_csv/tur-csv-turmas-de-2024.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/Turmas_csv/tur-csv-turmas-de-2024.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -1675,7 +1675,7 @@
   <transform>
     <type>CSVInput</type>
     <name>2025</name>
-    <filename>/home/ivanilton/Downloads/Turmas_csv/tur-csv-turmas-de-2025.csv</filename>
+    <filename>/home/ivanilton/Documentos/Bomba/Valores/Turmas_csv/tur-csv-turmas-de-2025.csv</filename>
     <include_filename>N</include_filename>
     <rownum_field/>
     <header>Y</header>
@@ -1909,7 +1909,7 @@
     t.numero AS numero_turma,
     t.ano,
     t.semestre,
-	count(c.mat_estudante) as total_alunos,
+	count(c.mat_estudante) as matriculados,
     ROUND(AVG(c.nota)::numeric, 2) AS media_notas,
     SUM(CASE WHEN c.nota >= 5 THEN 1 ELSE 0 END) AS qtd_aprovados,
     SUM(CASE WHEN c.nota &lt; 5 THEN 1 ELSE 0 END) AS qtd_reprovados
@@ -1925,8 +1925,8 @@ GROUP BY t.cod_disc, t.numero, t.ano, t.semestre;</sql>
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>464</yloc>
+      <xloc>256</xloc>
+      <yloc>704</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -1944,16 +1944,20 @@ GROUP BY t.cod_disc, t.numero, t.ano, t.semestre;</sql>
     <integer_pair>Y</integer_pair>
     <lookup>
       <key>
-        <name>codigo_componente</name>
-        <field>cod_disc</field>
-      </key>
-      <key>
         <name>ano</name>
         <field>ano</field>
       </key>
       <key>
+        <name>codigo_componente</name>
+        <field>cod_disc</field>
+      </key>
+      <key>
         <name>periodo</name>
         <field>semestre</field>
+      </key>
+      <key>
+        <name>matriculados</name>
+        <field>matriculados</field>
       </key>
       <value>
         <name>cod_disc</name>
@@ -1980,35 +1984,553 @@ GROUP BY t.cod_disc, t.numero, t.ano, t.semestre;</sql>
         <type>Integer</type>
       </value>
       <value>
-        <name>total_alunos</name>
-        <rename>total_alunos</rename>
-        <default>0</default>
+        <name>matriculados</name>
+        <rename>matriculados</rename>
+        <default/>
         <type>Integer</type>
       </value>
       <value>
         <name>media_notas</name>
         <rename>media_notas</rename>
-        <default>0</default>
+        <default/>
         <type>BigNumber</type>
       </value>
       <value>
         <name>qtd_aprovados</name>
         <rename>qtd_aprovados</rename>
-        <default>0</default>
+        <default/>
         <type>Integer</type>
       </value>
       <value>
         <name>qtd_reprovados</name>
         <rename>qtd_reprovados</rename>
-        <default>0</default>
+        <default/>
         <type>Integer</type>
       </value>
     </lookup>
     <distribute>Y</distribute>
     <copies>1</copies>
     <GUI>
-      <xloc>560</xloc>
-      <yloc>384</yloc>
+      <xloc>432</xloc>
+      <yloc>560</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>IfNull</type>
+    <name>If Null</name>
+    <fields>
+      <field>
+        <name>id_professor</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>semestre_id</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>qtd_reprovados</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>qtd_aprovados</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>media_notas</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <valuetypes/>
+    <selectFields>Y</selectFields>
+    <selectValuesType>N</selectValuesType>
+    <replaceAllByValue/>
+    <replaceAllMask/>
+    <setEmptyStringAll>N</setEmptyStringAll>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>416</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>SortRows</type>
+    <name>Sort rows</name>
+    <fields>
+      <field>
+        <name>componente_curricular</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>codigo_componente</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>codigo_turma</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>campus_turma</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>local</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>ano</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>periodo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>data_inicio</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>data_fim</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>docentes</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>descricao_horario</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>total_solicitacoes</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>capacidade_aluno</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>matriculados</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>tipo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>data_consolidacao</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>situacao_turma</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>modalidade_educacao</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>id_professor</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>nome</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>disciplina_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>codigo</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>departamento_responsavel</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>departamento_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>semestre_id</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>ano_1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>periodo_1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cod_disc</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>numero_turma</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>ano_2</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>semestre</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>matriculados_1</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>media_notas</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>qtd_aprovados</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>qtd_reprovados</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <directory>${java.io.tmpdir}</directory>
+    <sort_prefix>out</sort_prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <unique_rows>N</unique_rows>
+    <compress>N</compress>
+    <compress_variables/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>496</yloc>
+    </GUI>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <attributes/>
+  </transform>
+  <transform>
+    <type>Unique</type>
+    <name>Unique rows</name>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <fields>
+      <field>
+        <name>componente_curricular</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>codigo_componente</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>codigo_turma</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>campus_turma</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>local</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>ano</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>periodo</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>data_inicio</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>data_fim</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>docentes</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>descricao_horario</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>total_solicitacoes</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>capacidade_aluno</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>matriculados</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>tipo</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>data_consolidacao</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>situacao_turma</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>modalidade_educacao</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>id_professor</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>nome</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>disciplina_id</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>codigo</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>departamento_responsavel</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>departamento_id</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>semestre_id</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>ano_1</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>periodo_1</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>cod_disc</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>numero_turma</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>ano_2</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>semestre</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>matriculados_1</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>media_notas</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>qtd_aprovados</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>qtd_reprovados</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+    <GUI>
+      <xloc>592</xloc>
+      <yloc>416</yloc>
     </GUI>
     <partitioning>
       <method>none</method>
@@ -2073,18 +2595,33 @@ GROUP BY t.cod_disc, t.numero, t.ano, t.semestre;</sql>
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>If Null</from>
+      <to>Table output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>dim_semestre</from>
       <to>Stream lookup</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Table input</from>
-      <to>Stream lookup</to>
+      <from>Sort rows</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
+      <to>If Null</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Stream lookup</from>
-      <to>Table output</to>
+      <to>Sort rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Stream lookup</to>
       <enabled>Y</enabled>
     </hop>
   </order>
